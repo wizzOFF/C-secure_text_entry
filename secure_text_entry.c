@@ -93,7 +93,7 @@ int main(int argc, char *argv[])
     return 0;
 }
 */
-
+/*
 long lireLong()
 {
     char nombreTexte[100] = {0}; // 100 cases devraient suffire
@@ -118,5 +118,34 @@ int main(int argc, char *argv[])
     age = lireLong();
     printf("Ah ! Vous avez donc %d ans !\n\n", age);
  
+    return 0;
+}
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+double lireDouble() {
+    char nombreTexte[100] = {0}; // 100 cases devraient suffire
+    char *fin = NULL;
+    double nombreDouble = 0.0;
+
+    if (fgets(nombreTexte, 100, stdin) != NULL) {
+        // Si lecture du texte ok, convertir le nombre en double
+        nombreDouble = strtod(nombreTexte, &fin);
+        return nombreDouble;
+    } else {
+        // Si problème de lecture, renvoyer 0.0
+        return 0.0;
+    }
+}
+
+int main(int argc, char *argv[]) {
+    double poids = 0.0;
+
+    printf("Quel est votre poids ? ");
+    poids = lireDouble();
+    printf("Ah ! Vous pesez donc %lf kg !\n\n", poids);
+
     return 0;
 }
